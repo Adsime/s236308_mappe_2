@@ -2,6 +2,7 @@ package com.example.adrianpc.s236308_mappe_2;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +14,18 @@ import com.example.adrianpc.s236308_mappe_2.database.Contact;
 
 import java.util.List;
 
+import static android.R.drawable.ic_menu_delete;
+
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactHolder> {
 
     private List<Contact> contacts;
     private ContactFragment.OnListFragmentInteractionListener mListener;
+    private boolean inDeleteMode;
 
     public ContactAdapter(List<Contact> contacts, ContactFragment.OnListFragmentInteractionListener listener) {
         this.contacts = contacts;
         mListener = listener;
+        inDeleteMode = false;
     }
 
     @Override
@@ -30,9 +35,41 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
     }
 
     @Override
-    public void onBindViewHolder(ContactHolder holder, int position) {
+    public void onBindViewHolder(ContactHolder holder, final int position) {
+        final int id = position;
+        if(inDeleteMode) {
+            holder.delete.setClickable(true);
+            holder.delete.setImageResource(android.R.drawable.ic_delete);
+            holder.delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mListener.onDelete(position);
+                }
+            });
+        } else {
+            holder.delete.setClickable(false);
+            holder.delete.setImageResource(0);
+        }
         Contact current = contacts.get(position);
         holder.name.setText(current.getFirstname() + " " + current.getLastname());
+        holder.card.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                mListener.onLongInteraction();
+                return false;
+            }
+        });
+    }
+
+    public void delete(int index) {
+        contacts.remove(index);
+        notifyItemRemoved(index);
+        notifyItemRangeChanged(index ,getItemCount());
+    }
+
+    public void changeDeletable() {
+        inDeleteMode = !inDeleteMode;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -43,6 +80,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
+    }
+
+    public boolean isInDeleteMode() {
+        return inDeleteMode;
     }
 
     public class ContactHolder extends RecyclerView.ViewHolder {
