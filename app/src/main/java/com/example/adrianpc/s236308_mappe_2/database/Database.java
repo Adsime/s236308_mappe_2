@@ -11,22 +11,22 @@ public class Database {
 
     public static List<Contact> getContacts() {
         List<Contact> returnVal = new ArrayList<>();
-        returnVal.add(new Contact("Adrian", "Melsom", "13/07-1993", null, 12345678));
-        returnVal.add(new Contact("Duy", "Nguyen", "13/07-1993", null, 12345678));
-        returnVal.add(new Contact("Håkon", "Smørvik", "13/07-1993", null, 12345678));
-        returnVal.add(new Contact("Anmer", "Seif", "13/07-1993", null, 12345678));
-        returnVal.add(new Contact("Kim", "Vu", "13/07-1993", null, 12345678));
-        returnVal.add(new Contact("Huy", "Tran", "13/07-1993", null, 12345678));
-        returnVal.add(new Contact("Sina", "Hassani", "13/07-1993", null, 12345678));
+        returnVal.add(new Contact("Adrian Melsom", "13/07-1993", null, 12345678));
+        returnVal.add(new Contact("Duy Nguyen", "13/07-1993", null, 12345678));
+        returnVal.add(new Contact("Håkon Smørvik", "13/07-1993", null, 12345678));
+        returnVal.add(new Contact("Anmer Seif", "13/07-1993", null, 12345678));
+        returnVal.add(new Contact("Kim Vu", "13/07-1993", null, 12345678));
+        returnVal.add(new Contact("Huy Tran", "13/07-1993", null, 12345678));
+        returnVal.add(new Contact("Sina Hassani", "13/07-1993", null, 12345678));
 
         for(int i = 0; i < 15; i++) {
-            returnVal.add(new Contact("Adrian", "Melsom", "13/07-1993", null, 12345678));
-            returnVal.add(new Contact("Duy", "Nguyen", "13/07-1993", null, 12345678));
-            returnVal.add(new Contact("Håkon", "Smørvik", "13/07-1993", null, 12345678));
-            returnVal.add(new Contact("Anmer", "Seif", "13/07-1993", null, 12345678));
-            returnVal.add(new Contact("Kim", "Vu", "13/07-1993", null, 12345678));
-            returnVal.add(new Contact("Huy", "Tran", "13/07-1993", null, 12345678));
-            returnVal.add(new Contact("Sina", "Hassani", "13/07-1993", null, 12345678));
+            returnVal.add(new Contact("Adrian Melsom", "13/07-1993", null, 12345678));
+            returnVal.add(new Contact("Duy Nguyen", "13/07-1993", null, 12345678));
+            returnVal.add(new Contact("Håkon Smørvik", "13/07-1993", null, 12345678));
+            returnVal.add(new Contact("Anmer Seif", "13/07-1993", null, 12345678));
+            returnVal.add(new Contact("Kim Vu", "13/07-1993", null, 12345678));
+            returnVal.add(new Contact("Huy Tran", "13/07-1993", null, 12345678));
+            returnVal.add(new Contact("Sina Hassani", "13/07-1993", null, 12345678));
         }
 
         return returnVal;

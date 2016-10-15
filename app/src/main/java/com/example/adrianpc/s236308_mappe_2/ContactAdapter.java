@@ -2,7 +2,6 @@ package com.example.adrianpc.s236308_mappe_2;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +12,6 @@ import android.widget.TextView;
 import com.example.adrianpc.s236308_mappe_2.database.Contact;
 
 import java.util.List;
-
-import static android.R.drawable.ic_menu_delete;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactHolder> {
 
@@ -51,7 +48,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
             holder.delete.setImageResource(0);
         }
         Contact current = contacts.get(position);
-        holder.name.setText(current.getFirstname() + " " + current.getLastname());
+        holder.name.setText(current.getName());
         holder.card.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {

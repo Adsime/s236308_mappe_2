@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="NAME">Navn</string>
+    <string name="BIRTHDAY">Bursdag</string>
+    <string name="PHONENR">Telefonnr</string>
+</resources>

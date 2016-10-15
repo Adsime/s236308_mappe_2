@@ -6,8 +6,6 @@
     android:name="com.example.adrianpc.s236308_mappe_2.ContactFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.example.adrianpc.s236308_mappe_2.ContactFragment"
     tools:listitem="@layout/fragment_contact" />

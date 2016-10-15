@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.adrianpc.s236308_mappe_2.database.Contact;
 import com.example.adrianpc.s236308_mappe_2.database.Database;
 
 /**
@@ -60,7 +61,6 @@ public class ContactFragment extends Fragment {
         adapter.changeDeletable();
     }
 
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -80,7 +80,7 @@ public class ContactFragment extends Fragment {
 
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(View view, int id);
+        void onDeleteRequest(View view, int id);
         void onLongInteraction();
         void onDelete(int id);
 

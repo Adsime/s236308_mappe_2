@@ -14,6 +14,7 @@ public class MenuFragment extends Fragment {
     public static final int EXIT_ID = 1000;
     public static final int ACTIVATE_DELETE_ID = 1001;
     public static final int DEACTIVATE_DELETE_ID = 1002;
+    public static final int ADD_ID = 1003;
 
     private ImageButton first_left, second_left, third_left, fourth_left;
     private View view;
@@ -23,7 +24,6 @@ public class MenuFragment extends Fragment {
     public MenuFragment(MenuListener listener) {
         this.listener = listener;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,11 +43,20 @@ public class MenuFragment extends Fragment {
         return view;
     }
 
+    private void addListener(View view, final int id) {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onInteraction(id);
+            }
+        });
+    }
+
     private void clearMenu() {
-        first_left.setClickable(false);
-        second_left.setClickable(false);
-        third_left.setClickable(false);
-        fourth_left.setClickable(false);
+        first_left.setOnClickListener(null);
+        second_left.setOnClickListener(null);
+        third_left.setOnClickListener(null);
+        fourth_left.setOnClickListener(null);
         first_left.setImageResource(0);
         second_left.setImageResource(0);
         third_left.setImageResource(0);
@@ -56,24 +65,16 @@ public class MenuFragment extends Fragment {
 
     public void setMainMenu() {
         clearMenu();
-        fourth_left.setImageResource(android.R.drawable.ic_menu_delete);
-        fourth_left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onInteraction(ACTIVATE_DELETE_ID);
-            }
-        });
+        third_left.setImageResource(android.R.drawable.ic_input_add);
+        addListener(third_left, ADD_ID);
+        fourth_left.setImageResource(R.mipmap.list_edit_icon);
+        addListener(fourth_left, ACTIVATE_DELETE_ID);
     }
 
     public void setDeleteMenu() {
         clearMenu();
         fourth_left.setImageResource(android.R.drawable.ic_menu_save);
-        fourth_left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onInteraction(DEACTIVATE_DELETE_ID);
-            }
-        });
+        addListener(fourth_left, DEACTIVATE_DELETE_ID);
     }
 
     @Override

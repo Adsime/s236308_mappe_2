@@ -1,0 +1,197 @@
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_weight="1">
+
+    <ImageView
+        android:id="@+id/edit_contact_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        app:srcCompat="@mipmap/ic_placeholder"
+        android:tint="@color/tint_theme" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6">
+
+        <android.support.v7.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:columnCount="2">
+
+            <ImageButton
+                android:id="@+id/edit_button"
+                app:layout_columnWeight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                app:srcCompat="@android:drawable/ic_menu_edit"
+                android:tint="@color/tint_theme" />
+
+            <ImageButton
+                android:id="@+id/camera_button"
+                app:layout_columnWeight="1"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:background="@null"
+                app:srcCompat="@android:drawable/ic_menu_camera"
+                android:tint="@color/tint_theme" />
+
+        </android.support.v7.widget.GridLayout>
+
+        <EditText
+            android:hint="@string/NAME"
+            android:gravity="center"
+            android:id="@+id/edit_fragment_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            />
+
+        <android.support.v7.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:columnCount="2">
+
+            <ImageView
+                app:layout_columnWeight="0.2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:tint="@color/tint_theme"
+                app:srcCompat="@mipmap/ic_phone" />
+
+            <EditText
+                app:layout_columnWeight="0.8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_fragment_phone"
+                android:hint="@string/PHONENR"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                />
+
+        </android.support.v7.widget.GridLayout>
+
+        <android.support.v7.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:columnCount="2">
+
+            <ImageView
+                app:layout_columnWeight="0.2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:tint="@color/tint_theme"
+                app:srcCompat="@mipmap/ic_cake" />
+
+            <EditText
+                app:layout_columnWeight="0.8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_fragment_birthday"
+                android:hint="@string/BIRTHDAY"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
+        </android.support.v7.widget.GridLayout>
+
+        </LinearLayout>
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <ImageButton
+                android:id="@+id/edit_button"
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:background="@null"
+                app:srcCompat="@android:drawable/ic_menu_edit"
+                android:tint="@color/tint_theme" />
+
+            <ImageButton
+                android:id="@+id/camera_button"
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:background="@null"
+                app:srcCompat="@android:drawable/ic_menu_camera"
+                android:tint="@color/tint_theme" />
+
+        </LinearLayout>
+
+        <EditText
+            android:hint="@string/NAME"
+            android:gravity="center"
+            android:id="@+id/edit_fragment_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_weight="0.2"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:tint="@color/tint_theme"
+                app:srcCompat="@android:drawable/stat_sys_phone_call" />
+
+            <EditText
+                android:layout_weight="0.8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_fragment_phone"
+                android:hint="@string/PHONENR"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_weight="0.2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:tint="@color/tint_theme"
+                app:srcCompat="@mipmap/ic_cake" />
+
+            <EditText
+                android:layout_weight="0.8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_fragment_birthday"
+                android:hint="@string/BIRTHDAY"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
+        </LinearLayout>
+
+    </LinearLayout>-->
+
+</LinearLayout>
