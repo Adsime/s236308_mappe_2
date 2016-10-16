@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 public class Contact implements Serializable{
 
+    private int _ID;
     private String name, birthdate;
     private byte[] userImageResource;
     private int phonenumber;
@@ -17,6 +18,14 @@ public class Contact implements Serializable{
         this.birthdate = birthdate;
         this.userImageResource = userImageResource;
         this.phonenumber = phonenumber;
+    }
+
+    public int get_ID() {
+        return _ID;
+    }
+
+    public void set_ID(int _ID) {
+        this._ID = _ID;
     }
 
     public String getName() {

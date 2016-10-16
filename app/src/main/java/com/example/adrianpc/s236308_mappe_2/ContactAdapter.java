@@ -46,7 +46,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
             holder.delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mListener.onDelete(position);
+                    mListener.onDelete(contacts.get(position), position);
                 }
             });
         } else {

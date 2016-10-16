@@ -1,15 +1,18 @@
 package com.example.adrianpc.s236308_mappe_2;
 
 import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.adrianpc.s236308_mappe_2.database.Contact;
+import com.example.adrianpc.s236308_mappe_2.database.Database;
 
 public class ContactActivity extends AppCompatActivity implements EditContactFragment.EditListener, MenuFragment.MenuListener{
 
-    EditContactFragment editContactFragment;
-    MenuFragment menuFragment;
+    private EditContactFragment editContactFragment;
+    private MenuFragment menuFragment;
+    private Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

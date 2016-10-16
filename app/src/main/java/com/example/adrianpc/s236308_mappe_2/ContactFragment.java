@@ -24,6 +24,7 @@ public class ContactFragment extends Fragment {
     private OnListFragmentInteractionListener interactionListener;
     private RecyclerView recyclerView;
     private ContactAdapter adapter;
+    private Database db;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -46,14 +47,16 @@ public class ContactFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contact_list, container, false);
+        db = new Database(getContext());
         recyclerView = (RecyclerView) view.findViewById(R.id.view_contactlist);
-        adapter = new ContactAdapter(Database.getContacts(), interactionListener);
+        adapter = new ContactAdapter(db.getContacts(), interactionListener);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
         return view;
     }
 
-    public void delete(int index) {
+    public void delete(Contact contact, int index) {
+        db.deleteContact(contact.get_ID());
         adapter.delete(index);
     }
 
@@ -81,9 +84,8 @@ public class ContactFragment extends Fragment {
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onClick(Contact contact);
-        void onDeleteRequest(View view, int id);
         void onLongInteraction();
-        void onDelete(int id);
+        void onDelete(Contact contact, int index);
 
     }
 }

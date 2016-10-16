@@ -28,11 +28,6 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
     }
 
     @Override
-    public void onDeleteRequest(View view, int id) {
-        contactFragment.delete(id);
-    }
-
-    @Override
     public void onLongInteraction() {
         if(contactFragment.isInDeleteMode()) {
             menuFragment.setMainMenu();
@@ -54,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
     }
 
     @Override
-    public void onDelete(int id) {
-        contactFragment.delete(id);
+    public void onDelete(Contact contact, int index) {
+        contactFragment.delete(contact, index);
     }
 
     @Override
@@ -77,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
                 contactFragment.changeDeletable();
                 menuFragment.setMainMenu();
             } case MenuFragment.ADD_ID:{
-                //startAddActivity();
+                startAddActivity();
             }
         }
     }
