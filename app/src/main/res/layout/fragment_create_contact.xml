@@ -47,6 +47,8 @@
         </LinearLayout>
 
         <EditText
+            android:inputType="textPersonName"
+            android:imeOptions="actionDone"
             android:layout_below="@id/ctn1"
             android:id="@+id/create_fragment_name"
             android:layout_width="match_parent"
@@ -69,6 +71,8 @@
                 app:srcCompat="@mipmap/ic_phone" />
 
             <EditText
+                android:inputType="number"
+                android:imeOptions="actionDone"
                 android:id="@+id/create_fragment_phone"
                 android:hint="@string/PHONENR"
                 android:layout_weight="0.8"
@@ -97,7 +101,9 @@
                 android:layout_weight="0.8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
         </LinearLayout>
 

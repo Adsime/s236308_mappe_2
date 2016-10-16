@@ -3,7 +3,10 @@ package com.example.adrianpc.s236308_mappe_2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CreateActivity extends AppCompatActivity implements MenuFragment.MenuListener{
+import com.example.adrianpc.s236308_mappe_2.database.Contact;
+import com.example.adrianpc.s236308_mappe_2.utilities.Validator;
+
+public class CreateActivity extends AppCompatActivity implements MenuFragment.MenuListener, CreateContactFragment.CreateContactListener{
 
     private MenuFragment menuFragment;
     private CreateContactFragment createContactFragment;
@@ -12,7 +15,7 @@ public class CreateActivity extends AppCompatActivity implements MenuFragment.Me
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         menuFragment = new MenuFragment(this);
-        createContactFragment = new CreateContactFragment();
+        createContactFragment = new CreateContactFragment(this);
         setContentView(R.layout.activity_create);
         getSupportFragmentManager().beginTransaction().add(R.id.create_menu_container, menuFragment, "")
                 .add(R.id.create_contact_container, createContactFragment, "").commit();
@@ -25,5 +28,10 @@ public class CreateActivity extends AppCompatActivity implements MenuFragment.Me
                 onBackPressed();
             }
         }
+    }
+
+    @Override
+    public void onSaveClicked(Contact contact) {
+        System.out.println(Validator.validateContact(contact));
     }
 }
