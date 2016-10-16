@@ -1,8 +1,12 @@
 package com.example.adrianpc.s236308_mappe_2;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.adrianpc.s236308_mappe_2.database.Contact;
@@ -38,15 +42,25 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
         contactFragment.changeDeletable();
     }
 
-    public void startAddActivity(Contact contact) {
+    public void startEditActivity(Contact contact) {
         Intent intent = new Intent(this, ContactActivity.class);
         intent.putExtra("contact", contact);
+        startActivity(intent);
+    }
+
+    public void startAddActivity() {
+        Intent intent = new Intent(this, CreateActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void onDelete(int id) {
         contactFragment.delete(id);
+    }
+
+    @Override
+    public void onClick(Contact contact) {
+        startEditActivity(contact);
     }
 
     @Override
@@ -63,8 +77,22 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
                 contactFragment.changeDeletable();
                 menuFragment.setMainMenu();
             } case MenuFragment.ADD_ID:{
-                startAddActivity(null);
+                //startAddActivity();
             }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(getSupportFragmentManager().getBackStackEntryCount() <= 1) {
+            new AlertDialog.Builder(this).setPositiveButton(R.string.YES, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            }).setNegativeButton(R.string.NO, null).setMessage(R.string.EXIT_MESSAGE).show();
+        } else {
+            super.onBackPressed();
         }
     }
 }

@@ -80,6 +80,7 @@ public class ContactFragment extends Fragment {
 
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
+        void onClick(Contact contact);
         void onDeleteRequest(View view, int id);
         void onLongInteraction();
         void onDelete(int id);

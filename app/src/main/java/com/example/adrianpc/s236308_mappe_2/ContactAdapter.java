@@ -34,6 +34,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
     @Override
     public void onBindViewHolder(ContactHolder holder, final int position) {
         final int id = position;
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onClick(contacts.get(position));
+            }
+        });
         if(inDeleteMode) {
             holder.delete.setClickable(true);
             holder.delete.setImageResource(android.R.drawable.ic_delete);

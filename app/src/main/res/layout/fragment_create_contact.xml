@@ -27,16 +27,16 @@
             android:background="@color/main_theme">
 
             <ImageButton
-                android:id="@+id/edit_edit_button"
+                android:id="@+id/create_save"
                 android:background="@null"
                 android:layout_weight="0.5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:tint="@color/tint_theme"
-                app:srcCompat="@android:drawable/ic_menu_edit" />
+                app:srcCompat="@android:drawable/ic_menu_save" />
 
             <ImageButton
-                android:id="@+id/edit_camera_button"
+                android:id="@+id/create_camera"
                 android:background="@null"
                 android:layout_weight="0.5"
                 android:layout_width="0dp"
@@ -48,17 +48,15 @@
 
         <EditText
             android:layout_below="@id/ctn1"
-            android:id="@+id/edit_fragment_name"
+            android:id="@+id/create_fragment_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/NAME"
-            android:gravity="center"
-            android:focusable="false"
-            android:focusableInTouchMode="false"/>
+            android:gravity="center"/>
 
         <LinearLayout
             android:id="@+id/ctn2"
-            android:layout_below="@id/edit_fragment_name"
+            android:layout_below="@id/create_fragment_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="1">
@@ -71,14 +69,12 @@
                 app:srcCompat="@mipmap/ic_phone" />
 
             <EditText
-                android:id="@+id/edit_fragment_phone"
+                android:id="@+id/create_fragment_phone"
                 android:hint="@string/PHONENR"
                 android:layout_weight="0.8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:focusable="false"
-                android:focusableInTouchMode="false"/>
+                android:layout_gravity="center_vertical"/>
 
         </LinearLayout>
 
@@ -96,14 +92,12 @@
                 app:srcCompat="@mipmap/ic_cake" />
 
             <EditText
-                android:id="@+id/edit_fragment_birthday"
+                android:id="@+id/create_fragment_birthday"
                 android:hint="@string/BIRTHDAY"
                 android:layout_weight="0.8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:focusable="false"
-                android:focusableInTouchMode="false"/>
+                android:layout_gravity="center_vertical"/>
 
         </LinearLayout>
 

@@ -4,9 +4,11 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class MenuFragment extends Fragment {
@@ -39,6 +41,7 @@ public class MenuFragment extends Fragment {
         second_left = (ImageButton) view.findViewById(R.id.menubutton_second_from_left);
         third_left = (ImageButton) view.findViewById(R.id.menubutton_third_from_left);
         fourth_left = (ImageButton) view.findViewById(R.id.menubutton_fourth_from_left);
+
         setMainMenu();
         return view;
     }
@@ -65,10 +68,13 @@ public class MenuFragment extends Fragment {
 
     public void setMainMenu() {
         clearMenu();
-        third_left.setImageResource(android.R.drawable.ic_input_add);
-        addListener(third_left, ADD_ID);
-        fourth_left.setImageResource(R.mipmap.list_edit_icon);
-        addListener(fourth_left, ACTIVATE_DELETE_ID);
+        if(listener instanceof MainActivity) {
+            third_left.setImageResource(android.R.drawable.ic_input_add);
+            addListener(third_left, ADD_ID);
+            fourth_left.setImageResource(R.mipmap.list_edit_icon);
+            addListener(fourth_left, ACTIVATE_DELETE_ID);
+        } else {
+        }
     }
 
     public void setDeleteMenu() {

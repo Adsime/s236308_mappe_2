@@ -3,4 +3,7 @@
     <string name="NAME">Navn</string>
     <string name="BIRTHDAY">Bursdag</string>
     <string name="PHONENR">Telefonnr</string>
+    <string name="YES">Ja</string>
+    <string name="NO">Nei</string>
+    <string name="EXIT_MESSAGE">Er du sikker på at du vil avslutte?</string>
 </resources>

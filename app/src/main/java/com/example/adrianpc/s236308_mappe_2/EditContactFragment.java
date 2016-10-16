@@ -1,5 +1,6 @@
 package com.example.adrianpc.s236308_mappe_2;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.media.Image;
 import android.net.Uri;
@@ -9,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.adrianpc.s236308_mappe_2.database.Contact;
+import com.example.adrianpc.s236308_mappe_2.utilities.Converter;
 
 public class EditContactFragment extends Fragment {
 
@@ -20,16 +23,17 @@ public class EditContactFragment extends Fragment {
     private EditText name, birthday, phonenumber;
     private ImageView contactImage;
     private boolean editMode;
+    private ImageButton editButton, cameraButton;
     EditListener listener;
 
-    public EditContactFragment(EditListener listener) {
+    public EditContactFragment(EditListener listener, Contact current) {
+        this.current = current;
         this.listener = listener;
     }
 
-    private void setContact(Contact current) {
-        this.current = current;
+    private void setContact() {
         name.setText(current.getName());
-        phonenumber.setText(current.getPhonenumber());
+        phonenumber.setText(String.valueOf(current.getPhonenumber()));
         birthday.setText(current.getBirthdate());
     }
 
@@ -47,17 +51,27 @@ public class EditContactFragment extends Fragment {
         birthday = (EditText) view.findViewById(R.id.edit_fragment_birthday);
         phonenumber = (EditText) view.findViewById(R.id.edit_fragment_phone);
         contactImage = (ImageView) view.findViewById(R.id.edit_contact_image);
+        cameraButton = (ImageButton) view.findViewById(R.id.edit_camera_button);
+        editButton = (ImageButton) view.findViewById(R.id.edit_edit_button);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onEditRequest();
+            }
+        });
+        setContact();
         return view;
     }
 
     public void changeEditMode() {
         editMode = !editMode;
+        editButton.setImageResource((editMode)?android.R.drawable.ic_menu_save:android.R.drawable.ic_menu_edit);
         editTextFix(name);
         editTextFix(phonenumber);
         birthday.setOnClickListener((!editMode)?null:new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onEditRequest();
+                int[] date = Converter.convertDateString(current.getBirthdate());
             }
         });
     }
@@ -80,7 +94,6 @@ public class EditContactFragment extends Fragment {
     }
 
     public interface EditListener {
-        // TODO: Update argument type and name
         void onEditRequest();
     }
 }

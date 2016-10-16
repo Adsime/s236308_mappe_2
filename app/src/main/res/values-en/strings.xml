@@ -3,4 +3,7 @@
     <string name="NAME">Name</string>
     <string name="BIRTHDAY">Birthday</string>
     <string name="PHONENR">Phonenr</string>
+    <string name="YES">Yes</string>
+    <string name="NO">No</string>
+    <string name="EXIT_MESSAGE">Sure you want to quit?</string>
 </resources>
